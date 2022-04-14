@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Solve Math Problems</h1>
+<p>Here are the results of your answers: </p>
+{% for q_num, is_correct in zip %}
+{% if is_correct == "Correct" %}
+<p>Question {{ q_num }}: <b>{{ is_correct }}</b></p>
+{% else %}
+<p>Question {{ q_num }}: {{ is_correct }}</p>
+{% endif %}
+{% endfor %}
+<h3>Your final result: </h3>
+<p>You have <b>{{ correct }}</b> correct answers and <b>{{ wrong }}</b> wrong answers</p>
+<p>I hope you enjoyed your time with our math questions and made your day a little more interesting</p>
+{% endblock %}

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Randings</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+<!--        <link rel="icon" href="{% static 'images/sls_logo.png' %}" />-->
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+                            
+							<!-- Header -->
+                            <header id="header">
+								<a href="/" class="logo"><strong>Randings</strong></a>
+							</header>
+
+                            <!-- Content -->
+								<section>
+                                        {% block content %}
+
+                                        {% endblock %}
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+						<section>
+							<br>
+							<h2><a href="{% url 'index' %}">Homepage</a></h2>
+						</section>
+
+						<!-- Menu -->
+						<nav id="menu">
+							<header class="major">
+								<h2>Menu</h2>
+							</header>
+							<ul>
+								<li>
+									{% if user.is_authenticated %}
+									<span class="opener"><b>Hello,</b> {{ user.first_name }} {{ user.last_name }}</span>
+									{% else %}
+									<span class="opener">Accounts</span>
+									{% endif %}
+									<ul>
+										{% if user.is_authenticated %}
+										<li><a href="{% url 'logout' %}">Logout</a></li>
+										<li><a href="{% url 'verify_email' %}">Change Password</a></li>
+										{% if user.is_superuser %}
+										<li><a href="/admin" target="_blank">Admin Panel</a></li>
+										{% endif %}
+										{% else %}
+										<li><a href="{% url 'login' %}">Login</a></li>
+										<li><a href="{% url 'register' %}">Register</a></li>
+										<li><a href="{% url 'verify_email' %}">Forgot Password</a></li>
+										{% endif %}
+									</ul>
+								</li>
+								<li><a href="{% url 'randeveryday' %}">Randings to do everyday</a></li>
+								<li><a href="{% url 'randbored' %}">Randings for extremely bored people</a></li>
+							</ul>
+						</nav>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>More Info</h2>
+								</header>
+								<p>This website was created for the <strong>April Timathon</strong> competition</p>
+							</section>
+
+						<!-- Section -->
+						<section>
+							<header class="major">
+								<h2>About me</h2>
+							</header>
+							<p>
+								I am 14 years old and I am participating in this month's (April) timathon. <br>
+								Located in India. <br>
+								Big of Tim, great content on his youtube about programming <br>
+								Also see Ben Awad and Nick White 🙂
+							</p>
+						</section>
+
+						<!-- Footer -->
+							<section>
+								<!-- To create some space at the end -->
+							</section>
+
+					</div>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Randings for extremely bored people</h1>
+<p>These are random things are for people who are extemely bored. <br>These tasks may take more time so <b>beware</b></p>
+<p>Please click on one of the following:</p>
+<a href="{% url 'randbored_math' %}" class="button large">Solve Math Problems</a><br><br>
+<a href="/" class="button large">Comprehension</a><br><br>
+<a href="/" class="button large">Fill in the blanks</a><br><br>
+<a href="/" class="button large">Cook</a><br><br>
+<a href="/" class="button large">Excercise</a><br><br>
+<a href="/" class="button large">Musical Art</a><br><br>
+{% endblock %}

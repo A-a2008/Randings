@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Solve Math Problems</h1>
+<p>
+    Solve the following math questions and give your answer in the blank. If you are unable to solve it, you can always
+    click on the "Show/Hide solution" box to see the solution
+</p>
+<p>Solve the questions below and write the answers down and at the end of page, fill in the answers for the questions</p>
+<p>Keep all answers in decimals</p>
+
+
+<h3>1) Solve the Following Equation: (x - 1)(x + 6) - (x - 2)(x - 3) = 3</h3>
+<button onclick="toggleview()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q1.jpg' %}" alt="Image of solution for question 1">
+    </span>
+</div>
+
+<h3>2) Cost of 24 identical articles is Rs. 108, Find the cost of 40 similar articles.</h3>
+<button onclick="toggleview2()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution2" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q2.jpg' %}" alt="Image of solution for question 2">
+    </span>
+</div>
+
+<h3>3) 16 boys went to the canteen to have tea and snacks together. 
+    The bill amounted to Rs. 114.40. What will be the contribution of a boy who pays for himself and 5 others?</h3>
+<button onclick="toggleview3()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution3" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q3.jpg' %}" alt="Image of solution for question 3">
+    </span>
+</div>
+
+<h3>
+    4) A particular work can be completed by 6 men and 6 women in 24 days; whereas the same work can be completed by 
+    8 men and 12 women in 15 days. Find :<br><strong>(i) </strong>according to the amount of work done, 
+    one man is equivalent to how many women.<br><strong>(ii) </strong>the time is taken by 4 men and 6 women to 
+    complete the same work.
+</h3>
+<button onclick="toggleview4()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution4" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q4.jpg' %}" alt="Image of solution for question 4">
+    </span>
+</div>
+
+<h3>
+    5) A, B, and C can do a piece of work in 6 days, 12 days, and 24 days respectively. 
+    In what time will they altogether do it?
+</h3>
+<button onclick="toggleview5()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution5" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q5.jpg' %}" alt="Image of solution for question 5">
+    </span>
+</div>
+
+<h3>
+    6) A can finish a piece of work in 15 days and B can do it in 10 days. 
+    They worked together for 2 days and then B goes away. In how many days will A finish the remaining work?
+</h3>
+<button onclick="toggleview6()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution6" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q6.jpg' %}" alt="Image of solution for question 6">
+    </span>
+</div>
+
+<h3>7) A and B complete a piece of work in 24 days. B and C do the same work in 36 days; 
+    and A, B, and C together finish it in 18 days. In how many days will:<br>
+    (i) A alone,<br>(ii) C alone,<br>(iii) A and C together, complete the work?
+</h3>
+<button onclick="toggleview7()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution7" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q7.jpg' %}" alt="Image of solution for question 7">
+    </span>
+</div>
+
+<h3>8) Two pipes P and Q would fill an empty cistern in 24 minutes and 32 minutes respectively. 
+    Both the pipes being opened together, find when the first pipe must be turned off so that the empty 
+    cistern maybe just filled in 16 minutes.
+</h3>
+<button onclick="toggleview8()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution8" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q8.jpg' %}" alt="Image of solution for question 8">
+    </span>
+</div>
+
+<h3>9) 28 is 12 less than 4 times a number. Find the number.</h3>
+<button onclick="toggleview9()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution9" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q9.jpg' %}" alt="Image of solution for question 9">
+    </span>
+</div>
+
+<h3>10) The sum of three consecutive odd numbers is 57. Find the numbers.</h3>
+<button onclick="toggleview10()" class="button small">Show/Hide solution</button><br><br>
+
+<div id="togglesolution10" style="display:none;">
+    <span class="image ">
+        <img src="{% static 'images/Q10.jpg' %}" alt="Image of solution for question 10">
+    </span>
+</div>
+<br>
+<h4>Please fill in the blanks with the answers for the above given questions</h4>
+<form action="/randbored/math/" method="post">
+    {% csrf_token %}
+    Question 1. <input type="number" name="q1" placeholder="Answer for question 1" step=".01" required ><br /><br>
+    Question 2. <input type="number" name="q2" placeholder="Answer for question 2" required ><br /><br>
+    Question 3. <input type="number" name="q3" placeholder="Answer for question 3" step=".01" required ><br /><br>
+    Question 4. <input type="number" name="q4" placeholder="Answer for question 4" required ><br /><br>
+    Question 5. <input type="number" name="q5" placeholder="Answer for question 5" step=".01" required ><br /><br>
+    Question 6. <input type="number" name="q6" placeholder="Answer for question 6" required ><br /><br>
+    Question 7. <input type="number" name="q7" placeholder="Answer for question 7" required ><br /><br>
+    Question 8. <input type="number" name="q8" placeholder="Answer for question 8" required ><br /><br>
+    Question 9. <input type="number" name="q9" placeholder="Answer for question 9" required ><br /><br>
+    Question 10: <br>
+    1st number: <input type="number" name="q10i" required ><br /><br>
+    2nd number: <input type="number" name="q10ii" required ><br /><br>
+    3rd number: <input type="number" name="q10iii" required ><br /><br><br>
+    <input type="submit" class="button primary" value="Submit answers">
+    <input type="reset" class="button" value="Reset answers">
+</form>
+
+<script>
+    function toggleview() {
+        var x = document.getElementById("togglesolution");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview2() {
+        var x = document.getElementById("togglesolution2");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview3() {
+        var x = document.getElementById("togglesolution3");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview4() {
+        var x = document.getElementById("togglesolution4");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview5() {
+        var x = document.getElementById("togglesolution5");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview6() {
+        var x = document.getElementById("togglesolution6");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview7() {
+        var x = document.getElementById("togglesolution7");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview8() {
+        var x = document.getElementById("togglesolution8");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview9() {
+        var x = document.getElementById("togglesolution9");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleview10() {
+        var x = document.getElementById("togglesolution10");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

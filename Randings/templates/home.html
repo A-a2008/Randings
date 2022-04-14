@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Randings</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css'  %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/" class="logo"><strong>Randings</strong></a>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>Randings</h1>
+											<p>
+												<strong><u>Rand</u></strong>om th<strong><u>ings</u></strong> to make your everyday life a bit special. These tasks
+												make your life more interesting and also makes your life better overall.
+											</p>
+										</header>
+										<ul class="actions">
+											<li><a href="#start" class="button big">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="{% static 'images/Randings.png' %}" alt="" />
+									</span>
+								</section>
+
+								<a id="start"></a>
+							<!-- Section -->
+								<section>
+									<header class="major">
+									</header>
+									<div class="features">
+										{% if not user.is_authenticated %}
+										<article>
+											<div class="content">
+												<p>Please <a href="">login</a>  or <a href="">sign up</a></p>
+											</div>
+										</article>
+										{% else %}
+										<article>
+											<span class="icon solid fa-calendar"></span>
+											<div class="content">
+												<h3>Randings to do everyday</h3>
+												<p>For the people who work mostly and have limited time</p>
+												<a href="{% url 'randeveryday' %}" class="button large primary">Everyday Randings</a>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-paper-plane"></span>
+											<div class="content">
+												<h3>Randings for extremely bored people</h3>
+												<p>Do these if you are that type of person who has nothing much to do</p>
+												<a href="" class="button large">Time-consuming Randings</a>
+											</div>
+										</article>
+									{% endif %}
+									</div>
+								</section>
+
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<section>
+								<br>
+								<h2><a href="{% url 'index' %}">Homepage</a></h2>
+							</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li>
+											{% if user.is_authenticated %}
+											<span class="opener"><b>Hello,</b> {{ user.first_name }} {{ user.last_name }}</span>
+											{% else %}
+											<span class="opener">Accounts</span>
+											{% endif %}
+											<ul>
+												{% if user.is_authenticated %}
+												<li><a href="{% url 'logout' %}">Logout</a></li>
+												<li><a href="{% url 'verify_email' %}">Change Password</a></li>
+												{% if user.is_superuser %}
+												<li><a href="/admin" target="_blank">Admin Panel</a></li>
+												{% endif %}
+												{% else %}
+												<li><a href="{% url 'login' %}">Login</a></li>
+												<li><a href="{% url 'register' %}">Register</a></li>
+												<li><a href="{% url 'verify_email' %}">Forgot Password</a></li>
+												{% endif %}
+											</ul>
+										</li>
+										<li><a href="{% url 'randeveryday' %}">Randings to do everyday</a></li>
+										<li><a href="{% url 'randbored' %}">Randings for extremely bored people</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>More Info</h2>
+									</header>
+									<p>This website was created for the <strong>April Timathon</strong> competition</p>
+								</section>
+
+							<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>About me</h2>
+								</header>
+								<p>
+									I am 14 years old and I am participating in this month's (April) timathon. <br>
+									Located in India. <br>
+									Big of Tim, great content on his youtube about programming <br>
+									Also see Ben Awad and Nick White 🙂
+								</p>
+							</section>
+
+							<!-- Footer -->
+								<section>
+									<!-- To create some space at the end -->
+								</section>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js'  %}"></script>
+			<script src="{% static 'assets/js/browser.min.js'  %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js'  %}"></script>
+			<script src="{% static 'assets/js/util.js'  %}"></script>
+			<script src="{% static 'assets/js/main.js'  %}"></script>
+
+	</body>
+</html>

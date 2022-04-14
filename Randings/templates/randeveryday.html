@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Randings to do everyday</h1>
+<h3>This is for the people who work heavily and have limited time</h3>
+<p>
+    Here is your task for today {{ user.first_name }}: <br>
+    <font size="5"><b>{{ task }}</b></font>
+</p>
+{% endblock %}
