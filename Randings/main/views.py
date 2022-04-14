@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.apps import apps
+from django.core.mail import EmailMessage
 
 Randeveryday = apps.get_model("main", "Randeveryday")
 RandboredObject = apps.get_model("main", "Randbored")
@@ -132,3 +133,29 @@ class Randbored:
             return render(request, "randbored/math_correction.html", data)
         else:
             return render(request, "randbored/math.html")
+
+    def comprehension(self, request):
+        if request.method == "POST":
+            q1_ans = request.POST['1']
+            q2_ans = request.POST['2']
+            q3_ans = request.POST['3']
+            q4_ans = request.POST['4']
+            q5_ans = request.POST['5']
+            q6_ans = request.POST['6']
+
+            full_length_answer = f"1) {q1_ans} \n2) {q2_ans} \n3) {q3_ans} \n4) {q4_ans} \n5) {q5_ans} \n6) {q6_ans}"
+            from_email = 'randingstwtcodejam@gmail.com'
+            email_msg = EmailMessage(
+                "Answers for the comprehension",
+                full_length_answer,
+                from_email,
+                [from_email]
+            )
+            email_msg.send()
+            data = {
+                "message": "Answers sent",
+                "message_content": "The answers that you had written has been sent."
+            }
+            return render(request, "give_message.html", data)
+        else:
+            return render(request, "randbored/comprehension.html")
