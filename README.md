@@ -10,7 +10,7 @@ Here is the complete link for the website: [https://randings.pythonanywhere.com/
 
 Get random things to do to make your everyday lives a little bit interesting and fun. Get some time apart from your repetative schedule and instead do some random things this website gives
 
-## Use the website
+## Usage of the website
 Head over to [Randings](https://randings.pythonanywhere.com/) and create an account (You won't be able to use all the features without creating an account).
 
 Now you have 2 seperate kinds of tasks you can choose from.
