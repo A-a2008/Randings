@@ -40,4 +40,4 @@ The tools used to create this project are:
 * MySQL - Used as the database application
 
 ### About me
-Hi, this is me, Aryan. I am 14 years old. I am based in India and live in Bangalore. Loved working on this project in my free time as for me it was summer holidays. Looking forward to how many points I get for my effor
+Hi, this is me, Aryan. I am 14 years old. I am based in India and live in Bangalore. Loved working on this project in my free time as for me it was summer holidays. Looking forward to how many points I get for my effort
