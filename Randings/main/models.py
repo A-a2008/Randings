@@ -35,18 +35,10 @@ class Randeveryday(Model):
     options = models.CharField(max_length=1000, default=every_option)
 
 
-class Randbored(Model):
+class Asked(Model):
     username = models.CharField(max_length=256)
-    all_options = [
-        "Solve aptitude problems",
-        "Comprehension",
-        "Fill in the blanks",
-        "Paint a picture",
-        "Cook recipies",
-        "Excerise",
-        "Draw what comes to your mind"
-    ]
-    every_option = ""
-    for option in all_options:
-        every_option += f"{option}; "
-    options = models.CharField(max_length=1000, default=every_option)
+    asked = models.BooleanField(default=False)
+
+class EmailSending(Model):
+    username = models.CharField(max_length=256)
+    email = models.EmailField(max_length=256)

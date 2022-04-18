@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Randeveryday, Randbored
+from .models import Randeveryday, EmailSending
 
 # Register your models here.
 
 admin.site.register(Randeveryday)
-admin.site.register(Randbored)
+admin.site.register(EmailSending)
 
 # Site names
 

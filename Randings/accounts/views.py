@@ -8,7 +8,7 @@ import random
 
 
 Randeveryday = apps.get_model("main", "Randeveryday")
-Randbored = apps.get_model("main", "Randbored")
+Asked = apps.get_model("main", "Asked")
 
 # Create your views here.
 
@@ -36,7 +36,7 @@ def register(request):
                 Randeveryday.objects.create(
                     username=username
                 )
-                Randbored.objects.create(
+                Asked.objects.create(
                     username=username
                 )
                 data = {
